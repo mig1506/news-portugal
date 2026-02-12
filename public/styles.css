@@ -325,12 +325,20 @@ body {
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 0.75rem;
+  touch-action: pan-y;
 }
 
 .news-card-tooltip-text {
   min-height: 0;
-  overflow-y: auto;
+  max-height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+  /* Força o browser a criar área de scroll em iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .news-card-tooltip-link {
